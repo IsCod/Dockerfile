@@ -1,5 +1,5 @@
 #Docker images for centos web server
-#Version 0.02
+#Version 1.01
 FROM centos
 MAINTAINER IsCod "iscodd@gmail.com"
 
@@ -16,6 +16,9 @@ RUN yum install -y vim && yum install -y wget && yum install -y iproute
 WORKDIR $INSTALL_DIR
 ARG nginxnoarch=http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 RUN rpm -ivh $nginxnoarch && yum install -y nginx
-RUN nginx
+
+#copy conf for nginx
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD default.conf /etc/nginx/conf.d/
 
 EXPOSE 80
