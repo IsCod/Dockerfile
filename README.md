@@ -7,14 +7,15 @@ contains base image and application image
 ##centos web
 
 ###web.nginx
-create image 
+
+create image
 <code>
-$ docker build -t="web:nginx" .
+$ docker build -t="web:nginx" web.nginx/
 </code>
 
 create container
 <code>
-$ docker run -d -p8080:80 --name="web1" -v ~/data/www:/data/www web:nginx nginx 
+$ docker run -d -p8080:80 --name="web1" -v /data/www:/data/www web:nginx nginx 
 </code>
 
 test
