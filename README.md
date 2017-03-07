@@ -4,12 +4,27 @@
 
 contains base image and application image
 
-###1,centos image
+##centos web
 
-###2,centos web
+###web.nginx
+create image 
+<code>
+$ docker build -t="web:nginx" .
+</code>
 
-###3,centos php-fpm
+create container
+<code>
+$ docker run -d -p8080:80 --name="web1" -v ~/data/www:/data/www web:nginx nginx 
+</code>
 
-###4,centos mysql
+test
+<code>
+curl 127.0.0.1:8080
+</code>
 
-###5,centos ipvsadm
+
+##centos php-fpm
+
+##centos mysql
+
+##centos ipvsadm
